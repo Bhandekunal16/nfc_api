@@ -26,6 +26,15 @@ export class AuthController {
     }
   }
 
+  @Get('/account')
+  async getAccount(@Param('name') name: string) {
+    try {
+      return await this.authService.getAccount(name);
+    } catch (error) {
+      return { res: error, status: false, msg: 'error' };
+    }
+  }
+
   @Get('get/location/reviews')
   async getLocationReview(@Query('name') name: string) {
     try {
@@ -46,6 +55,15 @@ export class AuthController {
       return { data };
     } catch (error) {
       console.log(error);
+      return { res: error, status: false, msg: 'error' };
+    }
+  }
+
+  @Post('create/businessAccount')
+  async createAccount(@Body() body: any) {
+    try {
+      return await this.authService.createBusiness(body);
+    } catch (error) {
       return { res: error, status: false, msg: 'error' };
     }
   }
