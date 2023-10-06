@@ -6,7 +6,7 @@ import { url } from 'src/constants/url';
 @Injectable()
 export class AuthService {
   async getAccount(name: string) {
-    const apiUrl = `https://mybusinessaccountmanagement.googleapis.com/v1/name=${name}}`;
+    const apiUrl = url(name).getInfo;
     const response = await axios.get(apiUrl);
     return new Promise<any>((resolve, reject) => {
       //todo: code to fetch account
@@ -16,7 +16,7 @@ export class AuthService {
 
   async createBusiness(body: any) {
     try {
-      const apiUrl = `mybusinessaccountmanagement.googleapis.com/v1/accounts`;
+      const apiUrl = url('').createBusiness;
       const response = await axios.post(apiUrl, body);
       return response.data;
     } catch (error) {
