@@ -30,4 +30,17 @@ export class AuthService {
       throw error;
     }
   }
+
+  async getLocationReviewOwner(name) {
+    console.log(name);
+    const apiUrl = url(name).getAllReviewOwner;
+    console.log(apiUrl);
+
+    try {
+      const response = await axios.get(apiUrl);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
