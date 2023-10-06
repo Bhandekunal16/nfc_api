@@ -18,7 +18,19 @@ export class AuthController {
   async getData(@Query('name') name: string) {
     try {
       console.log(name);
-      const data = await this.authService.fetchData(name);
+      const data = await this.authService.getLocation(name);
+      return { data };
+    } catch (error) {
+      console.log(error);
+      return { res: error, status: false, msg: 'error' };
+    }
+  }
+
+  @Get('test')
+  async getLocationReview(@Query('name') name: string) {
+    try {
+      console.log(name);
+      const data = await this.authService.getLocationReview(name);
       return { data };
     } catch (error) {
       console.log(error);
