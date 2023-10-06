@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-
 import axios from 'axios';
 import { url } from 'src/constants/url';
 
