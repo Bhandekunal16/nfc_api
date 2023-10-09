@@ -3,12 +3,13 @@ import { ReviewService } from './review.service';
 import { getLocation } from './dto/get-location.dto';
 import { getLocationReview } from './dto/get-location-review.dto';
 import { getLocationReviewOwner } from './dto/get-location-review-owner.dto';
+import { Review } from 'src/routes/routes';
 
-@Controller('review')
+@Controller(Review.Controller)
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
 
-  @Get('get/location/name')
+  @Get(Review.GetLocationName)
   async getData(@Param() name: getLocation) {
     try {
       console.log(name);
@@ -20,7 +21,7 @@ export class ReviewController {
     }
   }
 
-  @Get('get/location/reviews')
+  @Get(Review.GetLocationReview)
   async getLocationReview(@Query('name') name: getLocationReview) {
     try {
       console.log(name);
@@ -32,7 +33,7 @@ export class ReviewController {
     }
   }
 
-  @Get('get/location/owner/reviews')
+  @Get(Review.GetLocationOwnerReview)
   async getLocationReviewOwner(@Query('name') name: getLocationReviewOwner) {
     try {
       console.log(name);
