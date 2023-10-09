@@ -9,7 +9,6 @@ export class AuthService {
     console.log(apiUrl);
     const response = await axios.get(apiUrl);
     return new Promise<any>((resolve, reject) => {
-      //todo: code to fetch account
       resolve({ status: true, data: response.data });
     });
   }
